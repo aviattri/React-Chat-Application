@@ -1,7 +1,18 @@
-const MyMessage = () => {
+const MyMessage = ({message}) => {
+        if(message ?.attachements?.length >0){
+                return(
+                        //render the message if it is an image
+                     <img 
+                        src={message.attachements[0].file}
+                        alt="message-attachment"
+                        className="message-image"
+                        style={{float: 'right'}}
+                     />   
+                )
+        }
     return(
-            <div>
-                 My Message
+            <div className="message" style={{float:'right', marginRight: '18px', color: 'white'  ,backgroundColor: '#3B2A50'}}>
+                 {message.text}
             </div>
     )
  }
